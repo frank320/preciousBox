@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to bottom, #cccccc 0%, #919191 100%);
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            transform-style: preserve-3D;
+            transform: rotateX(20deg) rotateY(30deg) rotateZ(0deg);
+            animation: move 5s linear infinite;
+        }
+
+        .box > div.ball {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform-style: preserve-3D;
+            opacity: 0;
+            animation: rotate 4s infinite linear;
+        }
+
+        .ball > div {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            position: absolute;
+            border: 4px solid transparent;
+            box-sizing: border-box;
+            left: 0;
+            top: 0;
+            font-size: 24px;
+            text-align: center;
+            line-height: 200px;
+            color: red;
+        }
+
+        .ball > div:nth-child(1) {
+            border-color: red;
+            transform: rotateY(45deg);
+        }
+
+        .ball > div:nth-child(2) {
+            border-color: yellow;
+            transform: rotateY(90deg);
+        }
+
+        .ball > div:nth-child(3) {
+            border-color: blue;
+            transform: rotateY(135deg);
+
+        }
+
+        .ball > div:nth-child(4) {
+            border-color: green;
+        }
+        .ball > div:nth-child(5) {
+            border-color: silver;
+            transform: rotateX(90deg);
+        }
+
+
+        /*设置六个面的位置及大小*/
+        .box > div {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0.8;
+            text-align: center;
+            line-height: 200px;
+            font-size: 88px;
+            transition: all 1s;
+        }
+
+        .left {
+            background: radial-gradient(50% 50% at 50% 50%, white 0%, pink 100%);
+            transform: rotateY(90deg) translateZ(-100px) rotateZ(0deg);
+            color: pink;
+        }
+
+        .right {
+            background: radial-gradient(50% 50% at 50% 50%, white 0%, yellow 100%);
+            transform: rotateY(90deg) translateZ(100px) rotateZ(0deg);
+            color: yellow;
+        }
+
+        .top {
+            background: radial-gradient(50% 50% at 50% 50%, white 0%, blue 100%);
+            transform: rotateX(90deg) translateZ(100px) rotateZ(0deg);
+            color: blue;
+        }
+
+        .bottom {
+            background: radial-gradient(50% 50% at 50% 50%, white 0%, green 100%);
+            transform: rotateX(90deg) translateZ(-100px) rotateZ(0deg);
+            color: green;
+        }
+
+        .front {
+            background: radial-gradient(50% 50% at 50% 50%, white 0%, red 100%);
+            transform: translateZ(100px) rotateZ(0deg);
+            color: red;
+        }
+
+        .back {
+            background: radial-gradient(50% 50% at 50% 50%, white 0%, gray 100%);
+            transform: translateZ(-100px) rotateZ(0deg);
+            color: gray;
+        }
+
+        /*鼠标放到盒子上 六个面散开*/
+        .box:hover .left {
+            transform: rotateY(90deg) translateZ(-200px) rotateZ(360deg);
+        }
+
+        .box:hover .right {
+            transform: rotateY(90deg) translateZ(200px) rotateZ(360deg);
+        }
+
+        .box:hover .top {
+            transform: rotateX(90deg) translateZ(200px) rotateZ(360deg);
+        }
+
+        .box:hover .bottom {
+            transform: rotateX(90deg) translateZ(-200px) rotateZ(360deg);
+        }
+
+        .box:hover .front {
+            transform: translateZ(200px) rotateZ(360deg);
+        }
+
+        .box:hover .back {
+            transform: translateZ(-200px) rotateZ(360deg);
+        }
+
+        /*显示中心球*/
+        .box:hover .ball {
+            opacity: 1;
+        }
+
+        .box:hover > div {
+            opacity: 0;
+        }
+        .box:hover{
+            animation: move  linear ;
+        }
+
+        @keyframes move {
+            from {
+                transform: rotateX(30deg) rotateY(0deg) rotateZ(0deg);
+            }
+            to {
+                transform: rotateX(30deg) rotateY(360deg) rotateZ(360deg);
+            }
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotateY(0deg) ;
+            }
+            to {
+                transform: rotateY(360deg) ;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="front">☆</div>
+    <div class="back">☆</div>
+    <div class="left">☆</div>
+    <div class="right">☆</div>
+    <div class="top">☆</div>
+    <div class="bottom">☆</div>
+    <div class="ball">
+        <div></div>
+        <div>Hello World</div>
+        <div></div>
+        <div>Hello World</div>
+        <div></div>
+    </div>
+</div>
+</body>
+</html>
